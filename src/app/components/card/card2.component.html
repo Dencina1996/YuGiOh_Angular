@@ -1,0 +1,120 @@
+<div *ngFor="let item of data">
+
+    
+
+    <!-- LA PRUEBA FINAL -->
+        <div class="card-container" [ngClass]="{
+            'creature': item.isCreature === true && item.hasEffect === false,
+            'creature-effect': item.isCreature === true && item.hasEffect === true,
+            'magic': item.isMagic === true,
+            'trap': item.isTrap === true}">
+            <div class="card-title-element">
+                <div class="card-title" [ngClass]="{
+                    'magic': item.isMagic === true,
+                    'trap': item.isTrap === true}">
+                    <label [ngStyle]="item.name.length >= 24 && item.name.length <= 30 ? {'font-size':'26px'} : item.name.length >= 30 ? {'font-size':'22px'} : {'font-size':'30px'}">{{ item.name }}</label>
+                </div>
+                <div class="card-element">
+                    <ng-container *ngIf="item.isCreature === true && item.element === 'AGUA'" >
+                        <img src="assets/images/cards/elements/Agua.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isCreature === true && item.element === 'DIVINIDAD'" >
+                        <img src="assets/images/cards/elements/Divinidad.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isCreature === true && item.element === 'FUEGO'" >
+                        <img src="assets/images/cards/elements/Fuego.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isCreature === true && item.element === 'LUZ'" >
+                        <img src="assets/images/cards/elements/Luz.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isCreature === true && item.element === 'OSCURIDAD'" >
+                        <img src="assets/images/cards/elements/Oscuridad.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isCreature === true && item.element === 'TIERRA'" >
+                        <img src="assets/images/cards/elements/Tierra.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isCreature === true && item.element === 'VIENTO'" >
+                        <img src="assets/images/cards/elements/Viento.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isMagic === true" >
+                        <img src="assets/images/cards/elements/Magia.webp">
+                    </ng-container>
+                    <ng-container *ngIf="item.isTrap === true" >
+                        <img src="assets/images/cards/elements/Trampa.webp">
+                    </ng-container>
+                </div>
+            </div>
+            <ng-container *ngIf="item.isCreature === true">
+                <div class="card-level">
+                    <img *ngFor="let level of [].constructor(item.level)" src="assets/images/Nivel.png">
+                </div>
+            </ng-container>
+            <ng-container *ngIf="item.isMagic === true">
+                <div class="card-effect">
+                    <label>[CARTA MÁGICA</label>
+                        <img *ngIf="item.magicType === 'CAMPO'" src="assets/images/cards/elements/magic/Magia_Campo.webp">
+                        <img *ngIf="item.magicType === 'CONTINUA'" src="assets/images/cards/elements/magic/Magia_Continua.webp">
+                        <img *ngIf="item.magicType === 'EQUIPO'" src="assets/images/cards/elements/magic/Magia_Equipo.webp">
+                        <img *ngIf="item.magicType === 'RAPIDA'" src="assets/images/cards/elements/magic/Magia_Rapida.webp">
+                    <label>]</label>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="item.isTrap === true">
+                <div class="card-effect">
+                    <label>[CARTA DE TRAMPA</label>
+                        <img *ngIf="item.trapType === 'CONTINUA'" src="assets/images/cards/elements/trap/Trampa_Continua.webp">
+                        <img *ngIf="item.trapType === 'CONTRAEFECTO'" src="assets/images/cards/elements/trap/Trampa_Contraefecto.webp">
+                    <label>]</label>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="item.isCreature === true">
+                <div class="card-image creature">
+                    <img src="{{ item.artwork }}">
+                </div>
+            </ng-container>
+            <ng-container *ngIf="item.isMagic === true">
+                <div class="card-image magic">
+                    <img src="{{ item.artwork }}">
+                </div>
+            </ng-container>
+            <ng-container *ngIf="item.isTrap === true">
+                <div class="card-image trap">
+                    <img src="{{ item.artwork }}">
+                </div>
+            </ng-container>
+            <div class="card-pack">
+                <label>{{ item.pack }}</label>
+            </div>
+            <ng-container *ngIf="item.isCreature === true">
+                <div class="card-data">
+                    <ng-container *ngIf="item.hasEffect === true">
+                        <label class="card-data-type">[{{ item.type }} / EFECTO]</label>
+                    </ng-container>
+                    <ng-container *ngIf="item.hasEffect === false">
+                        <label class="card-data-type">[{{ item.type }}]</label>
+                    </ng-container>
+                    <label class="card-data-description">{{ item.description }}</label>
+                    <div class="card-data-stats">
+                        <label class="card-attack">{{ item.attack }}</label>
+                        <label class="card-defense">{{ item.defense }}</label>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="item.isMagic === true">
+                <div class="card-data">
+                    <label class="card-data-description magic">{{ item.description }}</label>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="item.isTrap === true">
+                <div class="card-data">
+                    <label class="card-data-description trap">{{ item.description }}</label>
+                </div>
+            </ng-container>
+            <div class="card-code">
+                <label>{{ item.code }}</label>
+                <label>©1996 KAZUKI TAKAHASHI</label>
+            </div>
+        </div>
+
+</div>
+

@@ -68,7 +68,8 @@
               "browserTarget": "YuGiOh_FrontEnd:build:production"
             },
             "development": {
-              "browserTarget": "YuGiOh_FrontEnd:build:development"
+              "browserTarget": "YuGiOh_FrontEnd:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

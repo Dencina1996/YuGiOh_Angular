@@ -1,0 +1,35 @@
+<div class="hand-container">
+	<ng-container *ngFor="let item of hand">
+		<div [attr.data-id]=" item.id " class="hand-card" [ngClass]="{
+			    'creature': item.isCreature === true && item.hasEffect === false,
+			    'creature-effect': item.isCreature === true && item.hasEffect === true,
+			    'magic': item.isMagic === true,
+			    'trap': item.isTrap === true}" (mouseenter)="showCard(item.id)" (mouseleave)="hideCard()">
+			    <img src="assets/images/cards/artwork/{{ item.artwork }}">
+			    <ng-container *ngIf="item.isCreature === true">
+			    	<ng-container *ngIf="item.isCreature === true">
+			    	    <div class="hand-card-level">
+			    	        <img *ngFor="let level of [].constructor(item.level)" src="assets/images/Nivel.png">
+			    	    </div>
+			    	</ng-container>
+			    	<div class="hand-card-stats">
+			    		<label>{{ item.attack }}</label>
+			    		<label>{{ item.defense }}</label>
+			    	</div>
+			    </ng-container>
+			    <div class="hand-card-special" *ngIf="item.isMagic === true || item.isTrap === true">
+				    <ng-container *ngIf="item.isMagic === true">
+				    	<img *ngIf="item.magicType === 'CAMPO'" src="assets/images/cards/elements/magic/Magia_Campo.webp">
+				    	<img *ngIf="item.magicType === 'CONTINUA'" src="assets/images/cards/elements/magic/Magia_Continua.webp">
+				    	<img *ngIf="item.magicType === 'EQUIPO'" src="assets/images/cards/elements/magic/Magia_Equipo.webp">
+				    	<img *ngIf="item.magicType === 'RAPIDA'" src="assets/images/cards/elements/magic/Magia_Rapida.webp">
+				    </ng-container>
+				    <ng-container *ngIf="item.isTrap === true">
+				    	<img *ngIf="item.trapType === 'CONTINUA'" src="assets/images/cards/elements/trap/Trampa_Continua.webp">
+				    	<img *ngIf="item.trapType === 'CONTRAEFECTO'" src="assets/images/cards/elements/trap/Trampa_Contraefecto.webp">
+				    </ng-container>
+				</div>
+		</div>
+	</ng-container>
+</div>
+<app-card [childItem]="currentCard"></app-card>

@@ -1,0 +1,108 @@
+.hand-container {
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	display: flex;
+	width: 100%;
+	margin: 6px auto;
+	justify-content: center;
+	z-index: 999;
+}
+
+	.hand-card {
+	    width: 140px;
+	    height: 205px;
+		border: solid 1px black;
+		border-radius: 4px;
+		margin: 4px;
+		transition: box-shadow ease 0.2s;
+		position: relative;
+	}
+
+		.hand-card:hover {
+			box-shadow: 0px 0px 6px 2px #242424;
+			transition: box-shadow 0.2s ease-in-out;
+			cursor: pointer;
+			transform: scale(1.10);
+		}
+
+	.hand-card.creature {
+		background: url("/assets/images/cards/types/Normal_Small.png");
+		background-size: cover;
+	}
+
+	.hand-card.creature-effect {
+		background: url("/assets/images/cards/types/Effect_Small.png");
+		background-size: cover;
+	}
+
+	.hand-card.magic {
+		background: url("/assets/images/cards/types/Spell.png");
+		background-size: cover;
+	}
+
+	.hand-card.trap {
+		background: url("/assets/images/cards/types/Trap.png");
+		background-size: cover;
+	}
+
+		.hand-card-level {
+			height: 8px;
+			width: 100%;
+			position: absolute;
+			top: 145px;
+			text-align: center;
+		}
+
+		.hand-card-level img {
+			width: 10px !important;
+			height: 10px !important;
+			border-bottom: none !important;
+		}
+
+		.hand-card img {
+			width: 135px;
+			height: 145px;
+			margin-top: 2px;
+			border-radius: 4px 4px 0px 0px;
+			border-bottom: solid 1px black;
+		}
+
+		.hand-card-stats {
+			font-family: 'Card Description';
+			display: flex;
+			text-align: justify;
+			font-size: 18px;
+			line-height: 16px;
+			justify-content: center;
+			text-shadow: 0px 0px 1px black;
+			margin-top: 12px;
+			position: relative;
+		}
+
+			.hand-card-stats label {
+				width: 50px;
+				height: 25px;
+				text-align: center;
+			}
+
+			.hand-card-stats label:nth-child(1) {
+			    left: 15px;
+				position: absolute;
+			}
+
+			.hand-card-stats label:nth-child(2) {
+				right: 12px;
+				position: absolute;
+			}
+
+		.hand-card-special {
+			
+		}
+
+			.hand-card-special img {
+				width: 36px;
+				height: 36px;
+				margin-top: 4px;
+				border-bottom: none;
+			}
