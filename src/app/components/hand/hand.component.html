@@ -1,6 +1,6 @@
 <div class="hand-container">
 	<ng-container *ngFor="let item of hand">
-		<div [attr.data-id]=" item.id " class="hand-card" [ngClass]="{
+		<div class="hand-card" [ngClass]="{
 			    'creature': item.isCreature === true && item.hasEffect === false,
 			    'creature-effect': item.isCreature === true && item.hasEffect === true,
 			    'magic': item.isMagic === true,

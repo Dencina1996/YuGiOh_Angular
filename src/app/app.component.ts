@@ -25,9 +25,6 @@ export class AppComponent {
      
       
       this.currentItem = Object.values(response);
-      console.log(Object.values(response).length);
-      console.log("lalala");
-      console.log(this.currentItem);
   
     });
   }

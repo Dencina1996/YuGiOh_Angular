@@ -1,0 +1,41 @@
+.battlefield {
+    border: solid 1px black;
+    margin: auto;
+    background: black;
+    border-spacing: 4px;
+    border-radius: 8px;
+ 
+    td {
+        padding: 0px;
+        height: 80px;
+        width: 80px;
+        border: solid 1px black;
+        border-radius: 4px;
+
+        &:hover {
+            box-shadow: 1px 1px 10px 6px yellow;
+            cursor: pointer;
+        }
+    
+        &.normal {
+            background: url("/assets/images/terrain/Normal.png");
+            background-size: cover;
+        }
+
+        &.dark {
+            background: url("/assets/images/terrain/Dark.png");
+            background-size: cover;
+        }
+
+        &.mountain {
+            background: url("/assets/images/terrain/Mountain.png");
+            background-size: cover;
+        }
+
+        &.meadow {
+            background: url("/assets/images/terrain/Meadow.png");
+            background-size: cover;
+        }
+    }
+    
+}

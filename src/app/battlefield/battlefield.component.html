@@ -1,0 +1,11 @@
+<p>battlefield works!</p>
+<table class="battlefield">
+    <tr *ngFor="let itemRow of terrains.slice(0,7)">
+      <td *ngFor="let item of terrains.slice(0,7)" [ngClass]="{
+        'normal': item.name === 'NORMAL',
+        'dark': item.name === 'DARK',
+        'mountain': item.name === 'MOUNTAIN',
+        'meadow': item.name === 'MEADOW'
+      }"></td>
+    </tr>
+  </table>
